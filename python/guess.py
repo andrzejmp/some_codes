@@ -1,16 +1,27 @@
-#prime numbers to 100
-def prime(n):
-   is_prime = True
-   if n == 1:
-       return False
-   else:
-       for i in range(2, (int)(n//2)+1):
-           if n % i == 0:
-               is_prime = False
-               break
-       return is_prime        
+#Guss the number
+import random
+N = 100
+counter = 0 #counts number of guesses
 
+def draw_lots(n):
+    r = int(n*random.random()) + 1
+    return r
+    
+a = 1   # left edge of range
+b = N   # right edge of range
+x = draw_lots(N)  # computer draws a random numbenr 
+print("C: I thought a number. Guess it!\n")
+guess = 0 # initianate our gues with 0 to enter the loop
+while (guess != x):
+    guess = int(input("C: put a number from " +  str(a) + " to " + str(b) +": " ))
+    counter += 1
+    if(guess < x):
+        print("C: too small")
+        a = guess
+    elif(guess > x):       
+        print ("C: two big")
+        b = guess
+    else:
+        print ("C: you guessed my number. It was " + str(x))
 
-for i in range(1, 100):
-   if prime(i):
-       print(i, end=" ")     #in one line: print(i, end=" ")
+print("\nC: you needed " + str(counter) + " moves.")
