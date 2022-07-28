@@ -1,0 +1,14 @@
+<p>Oblicz silnię</p>
+
+<form method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.number.label }} {{ form.number() }}
+    {{ form.submit() }}
+</form>
+<p>
+    {% if number %}
+    The number is {{ number }}
+    {% else %}
+    Please enter your number:
+    {% endif %}
+    </p>

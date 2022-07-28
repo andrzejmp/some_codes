@@ -1,0 +1,19 @@
+<p>Find all the prime nubers between: {{ number }} and {{ number2 }}</p>
+
+<form method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.number.label }} {{ form.number() }}
+    <br><br>
+    {{ form.number2.label }} {{ form.number2() }}
+    <br><br>
+    {{ form.submit() }}
+</form>
+
+<p>
+    
+    {% for i in range(get_edge(number), get_edge(number2)+1) %}
+    {% if check_primes(i) %}
+    {{i}}
+    {% endif %}
+    {% endfor %}
+</p>

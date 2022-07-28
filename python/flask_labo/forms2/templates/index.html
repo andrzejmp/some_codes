@@ -1,0 +1,17 @@
+<h1>Info about student</h1>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.student.label }} {{ form.student() }}
+    <br>
+    {{ form.finished.label }} {{ form.finished() }}
+    <br>
+    {{ form.field.label }} {{ form.field() }}
+    <br>
+    {{ form.year.label }} {{ form.year() }}
+    <br>
+    Any feedback?
+    <br>
+    {{ form.feedback() }}
+    <br>
+    {{ form.submit() }}
+</form>
