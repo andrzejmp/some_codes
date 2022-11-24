@@ -2,16 +2,11 @@
 # -*- coding: utf-8 -*-
 
 s = '''
-To Sherlock Holmes she is always the woman. I have seldom heard him mention her under
-any other name. In his eyes she eclipses and predominates the whole of her sex.
-It was not that he felt any emotion akin to love for Irene Adler. All emotions,
-and that one particularly, were abhorrent to his cold, precise but admirably balanced mind.
-He was, I take it, the most perfect reasoning and observing machine that the world has seen,
-but as a lover he would have placed himself in a false position.
-From Adventures of Sherlock Holmes by Arthur Conan Doyle'''
+Ukraiński portal opisał niecodzienną sytuację spod Lwowa. Lokalny kierowca realizował codzienny kurs, gdy jedna z pasażerek zaczęła wykrzykiwać prorosyjskie hasła. Początkowo nic nie robił sobie ze słów kobiety, tylko prosił, żeby nie przeszkadzała innym. Jednak zachowanie kobiety było coraz bardziej agresywne, nie chciała się uspokoić, zaczęła krzyczeć. 
+'''
 
 chars = []
-for i in range(255):
+for i in range(455):
     chars.append(0)
 
 for letter in s:
@@ -23,7 +18,10 @@ X = []
 Y = []
 
 for i in range(d):
-    if chars[i]>0 and (i+1)>=97 and (i+1)<=122:
+    #if chars[i]>0 and (i+1)>=97 and (i+1)<=122:
+    #    X.append(chr(i+1))
+    #    Y.append(chars[i])
+    if chars[i]>0 and (i+1)>=64:
         X.append(chr(i+1))
         Y.append(chars[i])
 
@@ -34,7 +32,8 @@ print ('\nThe frequency of letters in %:\n ')
 
 for i in range(len(X)):
     Y[i] = round(100.0*Y[i]/sum_y,1)
-    print ('%5s %10.1f' %(X[i], Y[i]))
+    if Y[i] > 0:
+        print ('%5s %10.1f' %(X[i], Y[i]))
 
 from bokeh.io import output_file, show
 from bokeh.plotting import figure
@@ -50,3 +49,4 @@ p.y_range.start = 0
 
 show(p)
 
+#https://pynative.com/python-mysql-select-query-to-fetch-data/#h-steps-to-fetch-rows-from-a-mysql-database-table
